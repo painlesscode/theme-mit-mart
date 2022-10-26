@@ -5,7 +5,7 @@
   "main": "tailwind.config.js",
   "scripts": {
     "watch": "tailwindcss -i ./resources/css/app.css -o ./public/css/output.css --watch",
-    "dev": "tailwindcss -i ./resources/css/app.css -o ./public/css/output.css",
+    "dev": "tailwindcss -i ./resources/css/app.css -o ./public/css/output.css"
   },
   "keywords": [],
   "author": "Md. Hazzaz Bin Faiz",

@@ -1,0 +1,26 @@
+{
+    "name": "painlesscode/theme-mit-mart",
+    "type": "library",
+    "description": "Mit mart theme package",
+    "autoload": {
+        "psr-4": {
+            "Painlesscode\\ThemeMitMart\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hazzaz Bin Faiz",
+            "email": "hazzazbinfaiz@gmail.com"
+        }
+    ],
+    "require": {
+        "painlesscode/module-connector": "dev-main"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Painlesscode\\ThemeMitMart\\ThemeMitMartServiceProvider"
+            ]
+        }
+    }
+}

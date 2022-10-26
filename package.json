@@ -1,0 +1,15 @@
+{
+  "name": "theme-mit-mart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "watch": "tailwindcss -i ./resources/css/app.css -o ./public/css/output.css --watch",
+    "dev": "tailwindcss -i ./resources/css/app.css -o ./public/css/output.css",
+  },
+  "keywords": [],
+  "author": "Md. Hazzaz Bin Faiz",
+  "devDependencies": {
+    "tailwindcss": "^3.2.1"
+  }
+}

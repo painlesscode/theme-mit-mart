@@ -22,5 +22,11 @@
                 "Painlesscode\\ThemeMitMart\\ThemeMitMartServiceProvider"
             ]
         }
+    },
+    "repositories": {
+        "module-connector": {
+            "type": "vcs",
+            "url": "https://github.com/painlesscode/module-connector.git"
+        }
     }
 }

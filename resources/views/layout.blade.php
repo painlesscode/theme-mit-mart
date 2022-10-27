@@ -65,7 +65,6 @@
             @endforeach
         </div>
         <div class="ml-0 flex-grow lg:ml-64 bg-gray-200">
-            sdfsdfsdfsdfsdf
             {{ $slot ?? '' }}
         </div>
     </div>

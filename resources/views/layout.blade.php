@@ -42,7 +42,7 @@
             @foreach(app(\Painlesscode\ModuleConnector\Menu\MenuRegisterer::class)->getMenus($guard) as $menu)
             @if(count($menu->children) === 0)
             <div class="block w-full cursor-pointer">
-                <a class="block p-2 hover:text-gray-800" href="{{ $menu->target }}">{{ __($menu->name) }}</a>
+                <a class="block p-2 hover:text-gray-800" href="{{ value($menu->target) }}">{{ __($menu->name) }}</a>
             </div>
             @else
             <div class="flex w-full cursor-pointer flex-wrap justify-between" x-data="{ open: false }">

@@ -76,7 +76,7 @@
                 location.href.substring(0, location.href.indexOf('?')) :
                 location.href;
             document.querySelector('.nav-links').querySelectorAll("a").forEach(element => {
-                if (element.href === url) {
+                if (url.match(new RegExp(`${element.href.replaceAll(/([./])/g, '\\$1')}\\\/?(create|\\d*\\\/edit|\\d*)$`))) {
                     element.classList.add('active')
                 }
             })

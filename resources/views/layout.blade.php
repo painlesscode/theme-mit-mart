@@ -56,7 +56,7 @@
                 <div class="ml-4 flex flex-wrap w-full border-l-2" x-show="open" x-on:active="open = true" x-transition:enter="transition origin-top ease-out duration-100" x-transition:enter-start="opacity-0 scale-y-0" x-transition:enter-end="opacity-100 scale-y-100" x-transition:leave="transition origin-top ease-in duration-100" x-transition:leave-start="opacity-100 scale-y-100" x-transition:leave-end="opacity-0 scale-y-0">
                     @foreach($menu->children as $submenu)
                     <div class="block w-full cursor-pointer">
-                        <a class="block p-2 hover:text-gray-800" href="{{ $submenu->target }}">{{ __($submenu->name) }}</a>
+                        <a class="block p-2 hover:text-gray-800" href="{{ value($submenu->target) }}">{{ __($submenu->name) }}</a>
                     </div>
                     @endforeach
                 </div>

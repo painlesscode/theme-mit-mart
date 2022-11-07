@@ -42,7 +42,7 @@
             @foreach(app(\Painlesscode\ModuleConnector\Menu\MenuRegisterer::class)->getMenus($guard) as $menu)
             @if(count($menu->children) === 0)
             <div class="block w-full cursor-pointer">
-                <a class="block p-2 hover:text-gray-800" href="{{ $menu->target }}">{{ __($menu->name) }}</a>
+                <a class="block p-2 hover:text-gray-800" href="{{ value($menu->target) }}">{{ __($menu->name) }}</a>
             </div>
             @else
             <div class="flex w-full cursor-pointer flex-wrap justify-between" x-data="{ open: false }">
@@ -76,7 +76,7 @@
                 location.href.substring(0, location.href.indexOf('?')) :
                 location.href;
             document.querySelector('.nav-links').querySelectorAll("a").forEach(element => {
-                if (element.href === url) {
+                if (url.match(new RegExp(`${element.href.replaceAll(/([./])/g, '\\$1')}\\\/?(create|\\d*\\\/edit|\\d*)$`))) {
                     element.classList.add('active')
                 }
             })

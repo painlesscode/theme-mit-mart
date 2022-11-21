@@ -21,7 +21,7 @@
                 <div class="lg:shadow-r flex w-auto items-center justify-center self-stretch text-xl font-semibold lg:w-64 lg:bg-white">{{ config('app.name') }}</div>
             </div>
             <div class="lg:flex-grow flex justify-end lg:shadow" x-data="{ dropped: false }" x-on:click.outside="dropped = false">
-                <div class="p-4 cursor-pointer" x-on:click="dropped = !dropped">{{ auth()->guard($guard)->user()->name ?? 'Unknown' }}</div>
+                <div class="p-4 cursor-pointer" x-on:click="dropped = !dropped">{{ auth()->guard($guard)->user()->username ?? 'Unknown' }}</div>
                 <div class="w-48 fixed top-14 right-0 bg-white rounded-b shadow z-10" x-show="dropped" x-transition:enter="transition origin-top ease-out duration-100" x-transition:enter-start="opacity-0 scale-y-0" x-transition:enter-end="opacity-100 scale-y-100" x-transition:leave="transition origin-top ease-in duration-100" x-transition:leave-start="opacity-100 scale-y-100" x-transition:leave-end="opacity-0 scale-y-0">
                     <div class="p-2 cursor-pointer hover:font-semibold">
                         @if(Route::has($logoutRouteName))

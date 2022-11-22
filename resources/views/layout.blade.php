@@ -10,7 +10,7 @@
 
 <body class="font-sans antialiased">
     <div class="relative flex min-h-screen w-full flex-col" x-data="{ sidebarOpen : window.innerWidth >= 1024, width: window.innerWidth }" @resize.window="width = window.innerWidth" x-init="window.addEventListener('resize', () => { sidebarOpen = window.innerWidth >= 1024 })">
-        <div class="z-10 flex w-full bg-gray-200 lg:justify-between shadow lg:shadow-none">
+        <div class="z-10 flex w-full bg-gray-200 lg:justify-between shadow lg:shadow-none print:hidden">
             <div class="p-4 cursor-pointer lg:hidden" x-on:click="sidebarOpen = !sidebarOpen">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                     <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
@@ -37,7 +37,7 @@
 
             </div>
         </div>
-        <div x-bind:class="sidebarOpen ? 'left-0' : '-left-64'" class="fixed transition-all top-0 bottom-0 z-0 flex w-64 flex-col bg-white pt-16 font-semibold text-gray-600 lg:left-0 nav-links">
+        <div x-bind:class="sidebarOpen ? 'left-0' : '-left-64'" class="fixed transition-all top-0 bottom-0 z-0 flex w-64 flex-col bg-white pt-16 font-semibold text-gray-600 print:lg:-left-64 lg:left-0 nav-links print:hidden">
             @foreach(app(\Painlesscode\ModuleConnector\Menu\MenuRegisterer::class)->getMenus($guard) as $menu)
             @if(count($menu->children) === 0)
             <div class="block w-full cursor-pointer">
@@ -64,7 +64,7 @@
             @endif
             @endforeach
         </div>
-        <div class="ml-0 flex-grow lg:ml-64 bg-gray-200">
+        <div class="ml-0 flex-grow lg:ml-64 bg-gray-200 print:lg:ml-0">
             {{ $slot ?? '' }}
         </div>
     </div>

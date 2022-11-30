@@ -74,11 +74,29 @@
             const url = location.href.indexOf('?') > 0 ?
                 location.href.substring(0, location.href.indexOf('?')) :
                 location.href;
+
+            let links = [];
+
             document.querySelector('.nav-links').querySelectorAll("a").forEach(element => {
+                if (element.href === location.href) {
+                    links.push({
+                        element,
+                        priority: 0
+                    })
+                }
                 if (url.match(new RegExp(`${element.href.replaceAll(/([./])/g, '\\$1')}\\\/?(create|\\d*\\\/edit|\\d*)$`))) {
-                    element.classList.add('active')
+                    links.push({
+                        element,
+                        priority: 1
+                    })
                 }
             })
+
+            links.sort((a,b) => a.priority - b.priority)
+            if (links.length) {
+                links[0].element.classList.add('active')
+            }
+
             document.querySelectorAll("a.active").forEach(element => {
                 element.classList.remove('hover:text-gray-800')
                 'hover:text-gray-200 bg-gradient-to-r from-blue-700 to-sky-600 text-white mr-8 rounded-r-full'.split(' ')
